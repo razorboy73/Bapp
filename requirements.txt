@@ -1,0 +1,17 @@
+Django==1.6.5
+South==0.8.4
+boto==2.28.0
+dj-database-url==0.3.0
+django-social-auth==0.7.28
+django-storages==1.1.8
+gunicorn==18.0
+httplib2==0.9
+oauth2==1.5.211
+oauthlib==0.6.1
+pip-tools==0.3.4
+psycopg2==2.5.3
+python-linkedin==4.0
+python-openid==2.2.5
+requests==2.2.1
+requests-oauthlib==0.4.0
+wsgiref==0.1.2
