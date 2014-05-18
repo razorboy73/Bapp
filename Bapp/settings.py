@@ -30,7 +30,7 @@ else:
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'pollingapptestjosh.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'bapplication.herokuapp.com']
 
 
 # Application definition
