@@ -1,0 +1,1 @@
+web: gunicorn Bapp.wsgi -w 1 --log-level DEBUG
