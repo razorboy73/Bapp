@@ -1,0 +1,71 @@
+Alex Louden	5:10 PM
+pip install pip-tools
+pip-dump
+http://virtualenvwrapper.readthedocs.org/en/latest/
+https://github.com/alexlouden/heroku-django-s3/blob/master/requirements.txt
+gunicorn
+sourcetree
+sourcetreeapp.com
+web: gunicorn polls.wsgi -w 4 --log-level DEBUG
+https://github.com/alexlouden/heroku-django-s3/blob/master/Procfile
+git remote add heroku git@heroku.com:pollingapptest.git
+https://devcenter.heroku.com/articles/git#deploying-code
+https://github.com/ddollar/heroku-accounts
+git remote remove heroku
+
+me	5:30 PM
+git remote add heroku git@heroku.com:pollingapptestjosh.git
+Initializing repository, done.
+No refs in common and none specified; doing nothing.
+Perhaps you should specify a branch such as 'master'.
+
+Alex Louden	5:32 PM
+git push heroku master
+https://github.com/alexlouden/heroku-django-s3/blob/master/djangoproject/settings.py#L171
+DATABASE_URL=postgres://vbmfiuwxstqrfn:Mz2BnsYwg8-NUTtF_4W7vSdu9G@ec2-54-83-205-46.compute-1.amazonaws.com:5432/d8ol8jf9l323uf
+HEROKU = bool(os.environ.get('DATABASE_URL'))
+
+if HEROKU:
+  import dj_database_url
+  DATABASES['default'] = dj_database_url.config()
+https://github.com/razorboy73/pollingApp/commit/97201e4ac9bd54b34bc9a4b5b6f17b9384b91038
+git pull origin master
+:q!
+git@heroku.com:pollingapptestjosh.git
+s3 stuff: https://github.com/alexlouden/heroku-django-s3/blob/master/djangoproject/settings.py#L178
+heroku config:set AWS_STORAGE_BUCKET_NAME=bucket_name
+heroku config:set
+
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+me	6:07 PM
+did we just freez up?
+
+Alex Louden	6:10 PM
+if HEROKU:
+https://devcenter.heroku.com/articles/django-assets
+heroku run ,/manage.py collectstatic --noinput
+heroku run ./manage.py collectstatic --noinput
+Alex Louden left group chat.
+
+IAM -> user -> attach user policy
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1396320459000",
+      "Effect": "Allow",
+      "Action": [
+        "s3:*"
+      ],
+      "Resource": [
+        "arn:aws:s3:::bucket_name",
+        "arn:aws:s3:::bucket_name/*"
+      ]
+    }
+  ]
+}
+
+AWSAccessKeyId=AKIAISWIVX7MDU3GUTZA
+AWSSecretKey=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

@@ -56,7 +56,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'Bapp.urls'
 
-WSGI_APPLICATION = 'polls.wsgi.application'
+WSGI_APPLICATION = 'Bapp.wsgi.application'
 
 
 # Database
@@ -65,7 +65,7 @@ WSGI_APPLICATION = 'polls.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pollingApp',
+        'NAME': 'Bapplication',
         'USER': 'workhorse',
         'PASSWORD': 'Swingline1',
         'HOST': '127.0.0.1',
