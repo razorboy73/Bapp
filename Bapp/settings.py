@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 HEROKU = bool(os.environ.get('DATABASE_URL'))
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+print "BASE_DIR", BASE_DIR
+PROJECT_PATH = os.path.join(BASE_DIR, os.pardir)
+print "project path", PROJECT_PATH
+PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 
 
 # Quick-start development settings - unsuitable for production
@@ -99,7 +103,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-STATIC_PATH = os.path.join(BASE_DIR, 'main/static')
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
 
