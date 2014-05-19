@@ -10,3 +10,5 @@ def index(request):
     return render_to_response('main/index.html', context_dict, context)
 
 
+
+
