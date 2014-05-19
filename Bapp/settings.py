@@ -31,6 +31,7 @@ if HEROKU:
 	DEBUG = False
 else:
 	DEBUG = True
+        print "debug is on"
 
 TEMPLATE_DEBUG = True
 
