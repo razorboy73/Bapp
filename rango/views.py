@@ -4,7 +4,8 @@ from django.shortcuts import render_to_response
 from rango.models import Category, Page
 from rango.forms import CategoryForm
 from rango.forms import  PageForm, UserForm, UserProfileForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 def encode_url(str):
     return str.replace(' ', '_')
@@ -36,6 +37,8 @@ def index(request):
 
     return render_to_response('rango/index.html',context_dict, context)
 
+
+@login_required
 def category(request, category_name_url):
     #request our context from the request passed to us
     context = RequestContext(request)
@@ -67,13 +70,13 @@ def category(request, category_name_url):
     return render_to_response('rango/category.html', context_dict, context)
 
 
-
+@login_required
 def about(request):
     context = RequestContext(request)
     context_dict = {'boldmessage': "I am the about page"}
     return render_to_response('rango/about.html',context_dict, context)
 
-
+@login_required
 def add_category(request):
     # get contect from request
     context = RequestContext(request)
@@ -98,6 +101,7 @@ def add_category(request):
     #redner the form with error messages
     return render_to_response('rango/add_category.html',{'form': form}, context)
 
+@login_required
 def add_page(request, category_name_url):
     context = RequestContext(request)
 
@@ -231,6 +235,14 @@ def user_login(request):
     # blank dictionary object...
     else:
         return render_to_response('rango/login.html', {}, context)
+
+@login_required
+def user_logout(request):
+    # Since we know the user is logged in, we can now just log them out.
+    logout(request)
+
+    #take them back to homepage
+    return HttpResponseRedirect('/rango/')
 
 
 

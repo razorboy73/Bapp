@@ -37,6 +37,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'bapplication.herokuapp.com']
 
+LOGIN_URL = '/rango/login/'
+
 
 # Application definition
 

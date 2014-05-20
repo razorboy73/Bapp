@@ -16,10 +16,13 @@
     {% endif %}
      print {{ category_name_url}}
      <a href = '/rango/category/{{ category_name_url}}/add_page/'>Add a new page</a>
+     <br>
+</body>
 {% else %}
     The specified category {{ category_name }} does not exist
 {% endif %}
+     <a href="/rango/about/">About</a>
+<a href = "/rango/logout/">Logout</a>
 
-</body>
 </html>
 
