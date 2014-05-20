@@ -70,7 +70,6 @@ def category(request, category_name_url):
     return render_to_response('rango/category.html', context_dict, context)
 
 
-@login_required
 def about(request):
     context = RequestContext(request)
     context_dict = {'boldmessage': "I am the about page"}

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Rango</title>
-</head>
-<body>
+{% extends 'rango/base.html' %}
+
+{% block title %}Adding a new category to Rango{% endblock %}
+
+{% block body_block %}
+
 <h1>Login to Rango</h1>
 
 <form id = "login_form" method="post" action ="/rango/login/">
@@ -14,4 +14,4 @@
     <br>
     <input type = "submit" value="submit">
 </form>
-</body>
+{% endblock %}

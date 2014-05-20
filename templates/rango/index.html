@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Rango</title>
-    </head>
+{% extends 'rango/base.html' %}
 
+{% block title %}{{ category_name }}{% endblock %}
+
+{% block body_block %}
     <body>
         {% if user.is_authenticated %}
         <h1>Rango says...hello {{ user.username }}!</h1>
@@ -38,5 +37,4 @@
             <strong>There are no pages present.</strong>
         {% endif %}
 
-    </body>
-</html>
+{% endblock %}

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Adding a new category to Rango</title>
-</head>
-<body>
+{% extends 'rango/base.html' %}
+
+{% block title %}Adding a new category to Rango{% endblock %}
+
+{% block body_block %}
 <h1>Add a category</h1>
 <form id = "category_form" method="post" action = "/rango/add_category/">
 {% csrf_token %}
@@ -20,8 +19,4 @@
 
 
 </form>
-<a href="/rango/about/">About</a>
-<a href = "/rango/logout/">Logout</a>
-
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Rango - {% block title %} how to tango {% endblock %}</title>
+    </head>
+
+    <body>
+    <div>
+    {% block body_block %}
+        This is body_block's default content.
+    {% endblock %}
+    </div>
+    <hr>
+
+    {% if user.is_authenticated %}
+                <li><a href="/rango/logout/">Logout</a></li>
+                <li><a href="/rango/add_category/">Add a New Category</a></li>
+            {% else %}
+                <li><a href="/rango/register/">Register Here</a></li>
+                <li><a href="/rango/login/">Login</a></li>
+            {% endif %}
+
+                <li><a href="/rango/about/">About</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

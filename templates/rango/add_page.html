@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Adding a new page to {{ category_name }} Rango</title>
-</head>
-<body>
+{% extends 'rango/base.html' %}
+
+{% block title %}Adding a new category to Rango{% endblock %}
+
+{% block body_block %}
 <h1>Add a page</h1>
 <form id = "page_form" method="post" action = "/rango/category/{{category_name_url}}/add_page/">
 {% csrf_token %}
@@ -18,8 +17,4 @@
 {% endfor %}
 <input type = "submit" name = "submit" value="Add Page" />
 </form>
- <a href = '/rango/add_category/'>Add a new Category</a>
- <a href="/rango/about/">About</a>
- <a href = "/rango/logout/">Logout</a>
-</body>
-</html>
+{% endblock %}
