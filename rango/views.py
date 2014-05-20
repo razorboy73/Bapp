@@ -1,9 +1,10 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from rango.models import Category, Page
 from rango.forms import CategoryForm
 from rango.forms import  PageForm, UserForm, UserProfileForm
+from django.contrib.auth import authenticate, login
 
 def encode_url(str):
     return str.replace(' ', '_')
@@ -189,6 +190,48 @@ def register(request):
         'rango/register.html',
         {'user_form': user_form, 'profile_form':profile_form,
          "registered": registered},context)
+
+
+def user_login(request):
+    context = RequestContext(request)
+    # If the request is a HTTP POST, try to pull out the relevant information.
+    #if the request is POST, pull out the details
+    if request.method == "POST":
+        # Gather the username and password provided by the user.
+        # This information is obtained from the login form.
+        username = request.POST['username']
+        password = request.POST['password']
+
+        # Use Django's machinery to attempt to see if the username/password
+        # combination is valid - a User object is returned if it is.
+        user = authenticate(username=username,password=password)
+
+        # If we have a User object, the details are correct.
+        # If None (Python's way of representing the absence of a value), no user
+        # with matching credentials was found.
+
+        if user:
+            #is account active
+            if user.is_active:
+                # If the account is valid and active, we can log the user in.
+                # We'll send the user back to the homepage.
+                login(request,user)
+                return HttpResponseRedirect('/rango/')
+            else:
+                # inactive account
+                return HttpResponseRedirect ('Your account is dead')
+        #bad login
+        else:
+            print "Bad login details: {}, {}". format(username, password)
+            return HttpResponse("Your login details are incorrect")
+
+    # The request is not a HTTP POST, so display the login form.
+    # This scenario would most likely be a HTTP GET.
+    # No context variables to pass to the template system, hence the
+    # blank dictionary object...
+    else:
+        return render_to_response('rango/login.html', {}, context)
+
 
 
 
